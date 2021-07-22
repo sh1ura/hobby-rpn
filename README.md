@@ -1,15 +1,18 @@
-# ホビーRPN電卓 (u8g版)
+# ホビーRPN電卓 (u8g版, 誤差なし分数計算版)
 
-TOKYO FLIP-FLOP「ホビーRPN電卓」のファームウェアのうち <a href="https://github.com/ypsilon-takai/hobby-rpn">Ypsilon project版</a>の表示を Adafruit から u8g に変更したものです。
-どうしたものか迷ったのですが、割に大きな大きな改変なので fork しました。（私が github をよくわかっていないこともあり）
+TOKYO FLIP-FLOP「ホビーRPN電卓」のファームウェアのうち <a href="https://github.com/ypsilon-takai/hobby-rpn">Ypsilon project版</a>の表示を Adafruit から u8g に変更したものです。また、分数ですべての計算を行い誤差が生じない電卓（ウェブブラウザ版や Android アプリは<a href="https://shiura.com/html5/index.html">こちら</a>）のコードを移植したバージョンも exactRPN.ico としてアップしました。
+
+前者についてはどうしたものか迷ったのですが、割に大きな大きな改変なので fork しました。（私が github をよくわかっていないこともあり）
 もしよければ Ypsilon project版 にマージくださってもと思います。
+
+後者はほとんどオリジナルですが、<a href="https://github.com/tokyoff/hobby-rpn">Tokyo Flip-flopさんのオリジナル</a>のキースキャン部分のソースコードを用いているので同じくforkとします。
 
 ## ホビーRPN電卓について
 
 Tokyo Flip-flopさんが提供している小型のRPN電卓同人ハードです。
 本家サイト：https://www.hobby-rpn.com/
 
-## 変更内容（Ypsilon project版からの差分）
+## 変更内容（u8g 版：Ypsilon project版からの差分）
 
 ### u8glib を使うことでフォントをきれいに
 
@@ -32,3 +35,22 @@ Adafruit は小さいフォントの拡大になってしまうので、u8g の 
 ### リセット時のプロンプトを > にした
 
 リセット後やスタックを消去したときの 0. に違和感があったのでプロンプト的に > を表示するようにしました。
+
+## 誤差なし分数計算版（exactRPN.ico）
+
+操作はよく似ていますが、以下の点で異なります。
+
+### * 長押しで小数表示・分数表示の切り替え
+
+かわりに平方根の計算はできません（無理数は誤差なし計算できないため）
+
+### HP RPL 系の電卓に近い挙動
+
+HP伝統の、Enter を推すと x と y に同じ数値が入る挙動が個人的には嫌いなため，HP28S以降50Gまで用いられているタイプ（Enter を押すと確定されるだけ）にしています。
+
+### その他の操作
+
+- 確定後 Enter を更に押すとスタックトップが複製されます (DUP)
+- + の長押しでスタックトップを消します (DROP)
+- / の長押しでスタックトップの２つを入れ替えます (SWAP)
+- * の長押しで小数・分数表示モードを切り替えます（再掲）
