@@ -40,6 +40,8 @@ Adafruit は小さいフォントの拡大になってしまうので、u8g の 
 
 ## 誤差なし分数計算版（exactRPN.ico）
 
+![IMG_20210722_210914](https://user-images.githubusercontent.com/86639425/126646046-5edf0f8c-1d34-4820-ae6a-0b84fbc2fc58.jpg)
+
 操作はよく似ていますが、以下の点で異なります。
 
 ### '*' 長押しで小数表示・分数表示の切り替え
