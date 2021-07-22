@@ -20,7 +20,7 @@ Tokyo Flip-flopさんが提供している小型のRPN電卓同人ハードで�
 
 Adafruit は小さいフォントの拡大になってしまうので、u8g の 10x20 フォントを使用しました。
 
-![IMG_20210722_191534](https://user-images.githubusercontent.com/86639425/126626266-2c95b7e6-e6a9-4b4c-96d7-3dc33c8e471a.jpg)
+<img src="https://user-images.githubusercontent.com/86639425/126626266-2c95b7e6-e6a9-4b4c-96d7-3dc33c8e471a.jpg" width="500">
 
 ### 表示変更（桁数、右寄せ）
 
@@ -40,7 +40,7 @@ Adafruit は小さいフォントの拡大になってしまうので、u8g の 
 
 ## 誤差なし分数計算版（exactRPN.ico）
 
-![IMG_20210722_210914](https://user-images.githubusercontent.com/86639425/126646046-5edf0f8c-1d34-4820-ae6a-0b84fbc2fc58.jpg)
+<img src="https://user-images.githubusercontent.com/86639425/126646046-5edf0f8c-1d34-4820-ae6a-0b84fbc2fc58.jpg" width="500">
 
 操作はよく似ていますが、以下の点で異なります。
 
