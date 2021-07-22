@@ -1,6 +1,6 @@
 # ホビーRPN電卓 (u8g版)
 
-TOKYO FLIP-FLOP「ホビーRPN電卓」のファームウェアのうち Ypsilon project版の表示を Adafruit から u8g に変更したものです。
+TOKYO FLIP-FLOP「ホビーRPN電卓」のファームウェアのうち <a href="https://github.com/ypsilon-takai/hobby-rpn">Ypsilon project版</a>の表示を Adafruit から u8g に変更したものです。
 どうしたものか迷ったのですが、割に大きな大きな改変なので fork しました。（私が github をよくわかっていないこともあり）
 もしよければ Ypsilon project版 にマージくださってもと思います。
 
