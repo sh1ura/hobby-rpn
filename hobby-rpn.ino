@@ -1,13 +1,10 @@
 #include <Wire.h>
-#include <Adafruit_SSD1306.h>
+#include "U8glib.h"
 #include <fp64lib.h>
 
-#define SCREEN_WIDTH 128    // OLED display width, in pixels
-#define SCREEN_HEIGHT 32    // OLED display height, in pixels
-#define OLED_RESET    -1    // Reset pin # (or -1 if sharing Arduino reset pin)
-Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET, 500000, 100000);
+U8GLIB_SSD1306_128X32 u8g(U8G_I2C_OPT_NONE);  // I2C / TWI 
 
-#define MAX_DIGIT     10
+#define MAX_DIGIT     12
 
 byte pin_col[] = {0, 1, 2, 3};   // PD
 byte pin_row[] = {3, 2, 1, 0};   // PC
@@ -64,39 +61,44 @@ char key_scan() {
 }
 
 void blink_display() {
-    display.clearDisplay();
-    display.display();
-    delay(20);
+  u8g.firstPage();  
+  do {
+  } while(u8g.nextPage());
+  delay(10);
 }
 
 void init_display() {
-    display.clearDisplay();
-    display.setCursor(4, 18);
+    u8g.setColorIndex(1);
+    u8g.setFont(u8g_font_10x20r);
 }
 
 void update_display(String x_disp, String y_disp, boolean is_two_line) {
-    display.clearDisplay();
+  u8g.firstPage();  
+  do {
+    u8g.setPrintPos(0, 15);
+    u8g.print(y_disp);
 
-    display.setCursor(4, 0);
-    display.print(y_disp);
-
-    display.setCursor(4, 18);
+    u8g.setPrintPos(0, 31);
     if (x_disp == "") {
-        x_disp = "0.";
+        x_disp = ">";
     }
-    display.print(x_disp);
-
-    display.display();
+    u8g.print(x_disp);
+  } while(u8g.nextPage());
 }
     
 
 String fp64_to_string_wrap(float64_t n) {
+  String s;
     if (fp64_signbit(n)) {  // minus
-        return fp64_to_string(n, MAX_DIGIT, MAX_DIGIT - 3);
+        s = fp64_to_string(n, MAX_DIGIT, MAX_DIGIT - 3);
     }
     else {
-        return fp64_to_string(n, MAX_DIGIT, MAX_DIGIT - 2);
+        s = fp64_to_string(n, MAX_DIGIT, MAX_DIGIT - 2);
     }
+    while(s.length() < 12) {
+        s = " " + s; // align right
+    }
+    return s;
 }
 
 
@@ -112,12 +114,7 @@ void setup() {
     DDRC  &= ~(_BV(pin_row[0]) | _BV(pin_row[1]) | _BV(pin_row[2]) | _BV(pin_row[3]));  // INPUT
     PORTC |=   _BV(pin_row[0]) | _BV(pin_row[1]) | _BV(pin_row[2]) | _BV(pin_row[3]);   // PULLUP
 
-    display.begin(SSD1306_SWITCHCAPVCC, 0x3C);
-    display.setTextColor(WHITE);
-    display.setTextSize(2);
     init_display();
-    display.print("0.");
-    display.display();
 
     x = y = z = t = 0;
 }
@@ -177,7 +174,8 @@ void loop() {
             // -/+ change sign
             if (long_push) {
                 x = fp64_neg(x);
-                prev_pushed_key_type = last_pushed_key_type;
+//                prev_pushed_key_type = last_pushed_key_type;
+                prev_pushed_key_type = 1;
             }
             // - substruct
             else {
