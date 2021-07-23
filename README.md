@@ -4,8 +4,7 @@ TOKYO FLIP-FLOP「ホビーRPN電卓」のファームウェアのうち <a href
 
 また、分数ですべての計算を行い誤差が生じない電卓（ウェブブラウザ版や Android アプリは<a href="https://shiura.com/html5/index.html">こちら</a>）のコードを移植したバージョンも exactRPN.ico としてアップしました。
 
-前者についてはどうしたものか迷ったのですが、割に大きな大きな改変なので fork しました。（私が github をよくわかっていないこともあり）
-もしよければ Ypsilon project版 にマージくださってもと思います。
+前者については、Ypsilon project版が Adafruit + 独自フォント実装の方向に進化していますので fork しました。
 
 後者はほとんどオリジナルですが、<a href="https://github.com/tokyoff/hobby-rpn">Tokyo Flip-flopさんのオリジナル</a>のキースキャン部分のソースコードを用いているのでforkとします。
 
