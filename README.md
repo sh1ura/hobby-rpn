@@ -1,12 +1,14 @@
-# ホビーRPN電卓 (u8g版, 誤差なし分数計算版)
+# ホビーRPN電卓 ソフトウェア，ケース
 
-TOKYO FLIP-FLOP「ホビーRPN電卓」のファームウェアのうち <a href="https://github.com/ypsilon-takai/hobby-rpn">Ypsilon project版</a>のOLED表示ライブラリを Adafruit から u8g に変更したものです。
+ここで提供するのは、<a href="https://github.com/tokyoff/hobby-rpn">TOKYO FLIP-FLOP「ホビーRPN電卓」</a>に関する以下の３点です。
 
-また、分数ですべての計算を行い誤差が生じない電卓（ウェブブラウザ版や Android アプリは<a href="https://shiura.com/html5/index.html">こちら</a>）のコードを移植したバージョンも exactRPN.ico としてアップしました。
+* <a href="https://github.com/ypsilon-takai/hobby-rpn">Ypsilon project版</a>のOLED表示ライブラリを Adafruit から u8g に変更したもの（hobby-rpn.ico)。Ypsilon project版が Adafruit + 独自フォント実装の方向に進化していますので fork しました。
 
-前者については、Ypsilon project版が Adafruit + 独自フォント実装の方向に進化していますので fork しました。
+* 分数ですべての計算を行い誤差が生じない電卓（ウェブブラウザ版や Android アプリは<a href="https://shiura.com/html5/index.html">こちら</a>）のコードを移植したバージョン(exactRPN.ico)。こちらのソースコードはほとんどオリジナルですが、<a href="https://github.com/tokyoff/hobby-rpn">Tokyo Flip-flopさんのオリジナル</a>のキースキャン部分のソースコードを用いているのでforkしました。
 
-後者はほとんどオリジナルですが、<a href="https://github.com/tokyoff/hobby-rpn">Tokyo Flip-flopさんのオリジナル</a>のキースキャン部分のソースコードを用いているのでforkとします。
+* 3Dプリンタで出力できるケースの3Dデータ。フォルダ case 内を見てください。
+
+![case1](https://user-images.githubusercontent.com/86639425/126858002-d30cc380-30f6-459b-919d-26c7947bd335.jpg)
 
 ## ホビーRPN電卓について
 
