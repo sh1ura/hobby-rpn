@@ -9,9 +9,11 @@ Blender でデザインしました．割とタイトに設計したので，プ
 
 ![case2](https://user-images.githubusercontent.com/86639425/126858029-312147b4-4608-409f-9e30-fbac8d427348.jpg)
 
-かなり薄手に設計したので（主な肉厚は1mm）OLEDパネルの表示部がほぼツライチになります．また側面のスイッチは爪で引っ掛けて操作する感じになります．
+かなり薄手に設計したので（主な肉厚は1mm）OLEDパネルの表示部がほぼツライチになります．
+厚みはオリジナルより2mmほど薄いですが、側面が覆われているため上下・左右に3mmほど大きいです．
+また側面のスイッチは爪で引っ掛けて操作する感じになります．
 
-<img height="300" src="https://user-images.githubusercontent.com/86639425/126858043-2a68fc1f-06ba-476a-8283-ab5e1a94ae54.jpg"> <img height="300" src="https://user-images.githubusercontent.com/86639425/126858048-6e2fdef0-0056-43f2-9380-abd8597fa136.jpg">
+<img height="350" src="https://user-images.githubusercontent.com/86639425/126858043-2a68fc1f-06ba-476a-8283-ab5e1a94ae54.jpg"> <img height="350" src="https://user-images.githubusercontent.com/86639425/126889916-7620989d-2195-4d2f-95a0-b088c8ec1384.jpg">
 
 ## 材料・作り方
 
