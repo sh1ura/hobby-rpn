@@ -6,7 +6,7 @@
 
 * **関数電卓** 上記に関数電卓機能を加えたもの。ファンクションキーが表示され、三角関数や対数・指数関数が利用できます。
 
-* **exactRPN** 分数ですべての計算を行い誤差が生じない電卓（ウェブブラウザ版や Android アプリは<a href="https://shiura.com/html5/index.html">こちら</a>）のコードを移植したバージョン(exactRPN.ino)。こちらのソースコードはほとんどオリジナルですが、<a href="https://github.com/tokyoff/hobby-rpn">Tokyo Flip-flopさんのオリジナル</a>のキースキャン部分のソースコードを用いているのでforkしました。
+* **誤差なし計算版** 分数ですべての計算を行い誤差が生じない電卓（ウェブブラウザ版や Android アプリは<a href="https://shiura.com/html5/index.html">こちら</a>）のコードを移植したバージョン(exactRPN.ino)。こちらのソースコードはほとんどオリジナルですが、<a href="https://github.com/tokyoff/hobby-rpn">Tokyo Flip-flopさんのオリジナル</a>のキースキャン部分のソースコードを用いているのでforkしました。
 
 * **ケース** 3Dプリンタで出力できるケースの3Dデータ。
 
