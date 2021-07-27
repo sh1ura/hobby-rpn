@@ -4,6 +4,10 @@
 
 ![function](https://user-images.githubusercontent.com/86639425/127173781-89b7e90b-4101-4f0c-a79f-4f5ab58023f1.jpg)
 
+YouTube
+
+[![](https://img.youtube.com/vi/OuhnKmBOCCM/0.jpg)](https://www.youtube.com/watch?v=OuhnKmBOCCM)
+
 ## 使用方法
 
 - 0〜6のキーを長押しするとファンクションキー表示が現れ，最上段のキー（7, 8, 9）で選択して実行できます．
