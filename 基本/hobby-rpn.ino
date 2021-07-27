@@ -70,6 +70,7 @@ void blink_display() {
 void init_display() {
     u8g.setColorIndex(1);
     u8g.setFont(u8g_font_10x20r);
+    update_display("", fp64_to_string_wrap(0), true);
 }
 
 void update_display(String x_disp, String y_disp, boolean is_two_line) {
