@@ -24,6 +24,34 @@ float64_t pop() {
   return v;
 }
 
+#define UNDO_DEPTH 12
+int undoTop = 0;
+float64_t undoBuf[UNDO_DEPTH][STACK_DEPTH];
+
+void backup(void) {
+  if(undoTop >= UNDO_DEPTH) {
+    for(int i = 0; i < UNDO_DEPTH - 1; i++) {
+      for(int j = 0; j < STACK_DEPTH; j++) {
+        undoBuf[i][j] = undoBuf[i + 1][j];
+      }
+    }
+    undoTop --;
+  }
+  for(int j = 0; j < STACK_DEPTH; j++) {
+    undoBuf[undoTop][j] = stack[j];
+  }
+  undoTop++;
+}
+
+void restore(void) {
+  if(undoTop == 0) // no undo data
+    return;
+  undoTop--;
+  for(int j = 0; j < STACK_DEPTH; j++) {
+    stack[j] = undoBuf[undoTop][j];
+  }
+}
+
 byte pin_col[] = {0, 1, 2, 3};   // PD
 byte pin_row[] = {3, 2, 1, 0};   // PC
 
@@ -255,12 +283,20 @@ void loop() {
 
   switch(key) {
   case '+':
-    enter();
-    x = pop();
-    y = pop();
-    push(fp64_add(y, x));
+    if (long_push) { // undo
+      enteringStr = "";
+      restore();
+    }
+    else { // + addition
+      backup();
+      enter();
+      x = pop();
+      y = pop();
+      push(fp64_add(y, x));
+    }
     break;
   case '*':
+    backup();
     enter();
     if (long_push) { // square root
       push(fp64_sqrt(pop()));
@@ -272,6 +308,7 @@ void loop() {
     }
     break;
   case '-':
+    backup();
     enter();
     if (long_push) { // +/- CHS
       push(fp64_neg(pop()));
@@ -287,6 +324,7 @@ void loop() {
       mode = (mode + 1) % 7; // next page
     }
     else if (long_push) {            // SWAP x and y  
+      backup();
       enter();
       x = pop();
       y = pop();
@@ -294,6 +332,7 @@ void loop() {
       push(y);
     }
      else {
+      backup();
       enter();
       x = pop();
       y = pop();
@@ -301,6 +340,7 @@ void loop() {
     }
     break;
   case '=':
+    backup();
     if(enteringStr.length()) { // enter
       enter();
     }
@@ -320,15 +360,18 @@ void loop() {
         enter();
         switch(mode) {
         case 0: // x<>y (swap)
+          backup();
           x = pop();
           y = pop();
           push(x);
           push(y);
           break;
         case 1:
+          backup();
           push(fp64_sin(toRad(pop())));
           break;
         case 2:
+          backup();
           push(fromRad(fp64_asin(pop())));
           break;
         case 3: // switch degree / radian
@@ -341,12 +384,15 @@ void loop() {
           }
           break;
         case 4:
+          backup();
           push(fp64_log10(pop()));
           break;
         case 5:
+          backup();
           push(fp64_exp10(pop()));
           break;
         case 6: // +/- (CHS)
+          backup();
           push(fp64_neg(pop()));
           break;
         }
@@ -356,24 +402,31 @@ void loop() {
         enter();
         switch(mode) {
         case 0: // drop
+          backup();
           pop();
           break;
         case 1:
+          backup();
           push(fp64_cos(toRad(pop())));
           break;
         case 2:
+          backup();
           push(fromRad(fp64_acos(pop())));
           break;
         case 3: // pi
+          backup();
           push(float64_NUMBER_PI);
           break;
         case 4:
+          backup();
           push(fp64_log(pop()));
           break;
         case 5:
+          backup();
           push(fp64_exp(pop()));
           break;
         case 6: // 1/x
+          backup();
           push(fp64_inverse(pop()));
           break;
         }
@@ -387,25 +440,31 @@ void loop() {
           asm volatile ("  jmp 0");  
           break;
         case 1:
+          backup();
           push(fp64_tan(toRad(pop())));
           break;
         case 2:
+          backup();
           push(fromRad(fp64_atan(pop())));
           break;
         case 3: // e
+          backup();
           push(float64_EULER_E);
           break;
         case 4:
+          backup();
           x = pop();
           y = pop();
           push(fp64_div(fp64_log(x), fp64_log(y)));
           break;
         case 5:
+          backup();
           x = pop();
           y = pop();
           push(fp64_pow(y, x));
           break;
         case 6:
+          backup();
           push(fp64_sqrt(pop()));
           break;
         }
@@ -428,7 +487,9 @@ void loop() {
     }
     else { // entering number
       if (enteringStr.indexOf(".") == -1 || key != '.') {
-        enteringStr.concat(key);
+        if(enteringStr.length() || key != '0') {
+          enteringStr.concat(key);
+        }
       }
     }
   }
