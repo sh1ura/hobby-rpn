@@ -4,7 +4,7 @@
 
 * **基本** <a href="https://github.com/ypsilon-takai/hobby-rpn">Ypsilon project版</a>のOLED表示ライブラリを Adafruit から u8g に変更したもの（hobby-rpn.ino)。Ypsilon project版が Adafruit + 独自フォント実装の方向に進化していますので fork しました。
 
-* **関数電卓** 上記に関数電卓機能を加えたもの。ボタン長押しでファンクションキーが表示され、三角関数や対数・指数関数が利用できます。
+* **関数電卓** 上記に関数電卓機能を加えたもの。ボタン長押しでファンクションキーが表示され、三角関数や対数・指数関数が利用できます。12段階のアンドゥ機能もあります。
   
 ![mode](https://github.com/user-attachments/assets/4c911bf5-718d-4bf7-91ed-2e26ccb656da)
 左：通常モード（スタック２段表示）　右：ファンクションキー表示が現れたところ
