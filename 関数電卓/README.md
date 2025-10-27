@@ -12,7 +12,7 @@
 
 YouTube
 
-[![](https://img.youtube.com/vi/OuhnKmBOCCM/0.jpg)](https://www.youtube.com/watch?v=OuhnKmBOCCM)
+[![](https://img.youtube.com/vi/gpvkeJV2-ss/0.jpg)](https://www.youtube.com/watch?v=gpvkeJV2-ss)
 
 ## 関数の使用方法
 
