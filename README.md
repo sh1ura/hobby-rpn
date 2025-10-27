@@ -4,8 +4,8 @@
 
 * **関数電卓** 上記に関数電卓機能を加えたもの。ボタン長押しでファンクションキーが表示され、三角関数や対数・指数関数が利用できます。12段階のアンドゥ機能もあります。
   
-![mode](https://github.com/user-attachments/assets/4c911bf5-718d-4bf7-91ed-2e26ccb656da)
-左：通常モード（スタック２段表示）　右：ファンクションキー表示が現れたところ
+![DSC_3754](https://github.com/user-attachments/assets/93e43540-7602-4ff0-9c92-6efff2392aba)
+ファンクションキー表示が現れたところ
 
 * **誤差なし計算版** 分数ですべての計算を行い誤差が生じない電卓（ウェブブラウザ版や Android アプリは<a href="https://shiura.com/html5/index.html">こちら</a>）のコードを移植したバージョン(exactRPN.ino)。
 
