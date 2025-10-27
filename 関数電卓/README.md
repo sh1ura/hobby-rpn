@@ -7,11 +7,8 @@
 - （新機能）12段階のアンドゥ機能があります（'+' の長押し）。
 
 操作は、 HP28C から 50G までの RPL 系の機種に似たものになっています。"3.2 Enter" と押すと、入力中の 3.2 が確定されてスタックのトップに 3.2 が１つだけ入るような動作で、X への変な上書き感がなく，動作に一貫性が持たせやすいので（HP の初期の機種に見られた4段RPNでは X に上書きされるかどうかが直前の操作に依存する）、私はこちらのほうが好みです。
-  
-![function](https://user-images.githubusercontent.com/86639425/127173781-89b7e90b-4101-4f0c-a79f-4f5ab58023f1.jpg)
 
 YouTube
-
 [![](https://img.youtube.com/vi/gpvkeJV2-ss/0.jpg)](https://www.youtube.com/watch?v=gpvkeJV2-ss)
 
 ## 関数の使用方法
