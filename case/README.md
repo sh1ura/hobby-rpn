@@ -1,6 +1,6 @@
 ### Hobby RPN 電卓用ケース
 
-![DSC_3754](https://github.com/user-attachments/assets/b7f547db-85ae-4ef0-b735-2ea0bec7a0be)
+![case](https://github.com/user-attachments/assets/e6cc9401-9310-4d44-9ae7-268c7f5ddc08)
 
 Blender でデザインしました。上のケースは Bambu Lab P1S の標準ノズル（0.4mm）でプリントしたものです。
 
